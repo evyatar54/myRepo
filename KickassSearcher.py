@@ -3,6 +3,7 @@
 from KickassAPI import *
 import gzip, urllib2, sys
 from StringIO import *
+import os, subprocess, platform
 
 torrentList = []
 
@@ -39,7 +40,6 @@ def search(queries):
     return results
 
     
-import os, subprocess, platform
 
 def retrieve_path_by_os(name):
 	path = ""
