@@ -93,10 +93,10 @@ def download(links_array):
 				output.close()
 			#try:
 			if path:
-				if platform.system().startswith('linux'):
-					subprocess.call(["xdg-open", path])
+				if platform.system().lower().startswith('linux'):
+				    subprocess.call(["xdg-open", path])
 				else:
-				  os.startfile(path)
+				    os.startfile(path)
 			else:
 				print "no path!"
 			# except:
