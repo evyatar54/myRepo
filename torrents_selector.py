@@ -94,6 +94,7 @@ class torrents_selector():
     #print  torrents
     self.torrents_list = torrents
     download(torrents)
+    self.window.destroy()
     
 
   def get_torrents_from_holder(self, hh):
@@ -113,7 +114,7 @@ class torrents_selector():
     self.window.set_size_request(800,600)
     self.window.set_title("Kickass Downloader")
     self.window .set_border_width(0)
-    self.window.connect("destroy", gtk.main_quit)
+    #self.window.connect("destroy", gtk.main_quit)
     
     self.scrolled_window = gtk.ScrolledWindow()
     self.scrolled_window.set_border_width(10)
