@@ -2,7 +2,8 @@ import pygtk
 pygtk.require('2.0')
 import gtk
 
-from KickassSearcher import QueryResults, download
+from SearchModules.KickassSearcher as KickassSearcher import QueryResults
+from LinksDownloader import download
 
 
 class torrent_descriptor(gtk.TreeView):
@@ -94,7 +95,7 @@ class torrents_selector():
     #print  torrents
     self.torrents_list = torrents
     download(torrents)
-    self.destroy()
+    self.window.destroy()
     
 
   def get_torrents_from_holder(self, hh):

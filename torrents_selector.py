@@ -2,7 +2,8 @@ import pygtk
 pygtk.require('2.0')
 import gtk
 
-from KickassSearcher import QueryResults, download
+from SearchModules.KickassSearcher import QueryResults
+from LinksDownloader import download
 
 
 class torrent_descriptor(gtk.TreeView):

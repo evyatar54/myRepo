@@ -3,7 +3,7 @@
 import pygtk, time
 pygtk.require('2.0')
 import gtk
-import KickassSearcher
+from SearchModules.KickassSearcher import *
 from torrents_selector import torrents_selector
 
 class down_toolbar(gtk.Table):
@@ -144,9 +144,7 @@ class mainWindow:
     for song in self.songsHolder.get_children():
       queries.append(song.get_song_name())
     
-    
-    results = KickassSearcher.search(queries)
-    #print "results - ", results
+    results = SearchModules.KickassSearcher.search(queries)
     selector = torrents_selector(results)
     
   def remove_all(self):
