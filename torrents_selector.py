@@ -3,7 +3,7 @@ pygtk.require('2.0')
 import gtk
 
 from SearchModules.KickassSearcher import QueryResults
-from LinksDownloader import download
+from LinksDownloader import LinksDownloader
 
 
 class torrent_descriptor(gtk.TreeView):
@@ -92,10 +92,11 @@ class torrents_selector():
     torrents = []
     for hh in self.h_holders:
       torrents.append(self.get_torrents_from_holder(hh))
-    #print  torrents
     self.torrents_list = torrents
-    download(torrents)
+    downloader = LinksDownloader()
+    downloader.download(torrents)
     self.window.destroy()
+    self.parent.set_sensitive(True)
     
 
   def get_torrents_from_holder(self, hh):
@@ -110,11 +111,12 @@ class torrents_selector():
     return torrs
   
 
-  def __init__(self, QRs):
+  def __init__(self,parent, QRs):
     self.window = gtk.Dialog()
     self.window.set_size_request(800,600)
     self.window.set_title("Kickass Downloader")
     self.window .set_border_width(0)
+    self.parent = parent
     #self.window.connect("destroy", gtk.main_quit)
     
     self.scrolled_window = gtk.ScrolledWindow()

@@ -6,23 +6,6 @@ import gtk
 from SearchModules.KickassSearcher import *
 from torrents_selector import torrents_selector
 
-class down_toolbar(gtk.Table):
-  
-  def __init__(self,songsHolder=None):
-    gtk.Table.__init__(self, 1, 6, True)
-    self.songsHolder = songsHolder
-    self.send_button = gtk.Button("Send Songs")
-    self.send_button.connect("clicked", self.send_songs)
-    self.attach(self.send_button, 5,6,0,1)
-    self.send_button.show()
-    #self.show()
-    
-  def send_songs(self, Widget):
-    queries =  []
-    for song in self.songsHolder.get_children():
-      queries.append(song.get_song_name() )
-    torrentList = queries
-    search()
 
 class upper_toolbar(gtk.HBox):
   
@@ -49,7 +32,9 @@ class upper_toolbar(gtk.HBox):
     self.pack_start(self.button, False)
     
     self.showMyself()
-    ##
+    
+    
+###############################################################################################################3
 
 class songHolder(gtk.HBox):
   
@@ -96,6 +81,13 @@ class songHolder(gtk.HBox):
   
   def remove_self(self, Widget):
     self.destroy()
+
+    
+    
+    
+############################################################################################################################3    
+    
+    
     
 class songsHolder(gtk.VBox):
   
@@ -112,7 +104,12 @@ class songsHolder(gtk.VBox):
     if(self.focused):
       self.focused.lose_focus()
     self.focused = item
+
     
+##############################################################################################################################3
+
+
+
 class mainWindow:
   
   def init_top_toolbar(self, sh):
@@ -122,15 +119,10 @@ class mainWindow:
   def init_songs_holder(self):
     self.songsHolder = songsHolder()
   
-  def init_down_toolbar(self):
-    self.down_toolbar = down_toolbar(songsHolder=self.songsHolder)
-    
   def init_vbox(self):
-    self.init_down_toolbar()
     self.Vstruct = gtk.VBox()
     self.Vstruct.pack_start(self.songsHolder, True)
     self.songsHolder.show()  
-    self.down_toolbar.show()
     self.Vstruct.show()
   
   def init_send_button(self):
@@ -140,18 +132,24 @@ class mainWindow:
     self.send_button.show()
   
   def send_songs(self, Widget):
+    self.window.set_sensitive(False)
     queries = []
     for song in self.songsHolder.get_children():
       queries.append(song.get_song_name())
     
-    results = search(queries)
-    selector = torrents_selector(results)
+    searcher = KickassSearcher()    
+    results = searcher.search(queries)
     
+    selector = torrents_selector(self.window,results)
+  
+  
   def remove_all(self):
     for w in self.window.vbox:
       self.window.vbox.remove(w)
     self.window.show()
     
+
+
   def __init__(self):
     self.window = gtk.Dialog()
     self.window.set_size_request(600,400)
