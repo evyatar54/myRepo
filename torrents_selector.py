@@ -91,7 +91,7 @@ class torrents_selector():
   def update_list(self, Widget):
     torrents = []
     for hh in self.h_holders:
-      torrents.append(self.get_torrents_from_holder(hh))
+      torrents.extend(self.get_torrents_from_holder(hh))
     self.torrents_list = torrents
     downloader = LinksDownloader()
     downloader.download(torrents)
@@ -110,14 +110,17 @@ class torrents_selector():
 	  torrs.append(model.get_reses()[i])
     return torrs
   
-
+    
+  def activate_parent(self,w):
+      self.parent.set_sensitive(True)
+      
   def __init__(self,parent, QRs):
     self.window = gtk.Dialog()
     self.window.set_size_request(800,600)
     self.window.set_title("Kickass Downloader")
     self.window .set_border_width(0)
     self.parent = parent
-    #self.window.connect("destroy", gtk.main_quit)
+    self.window.connect("destroy", self.activate_parent)
     
     self.scrolled_window = gtk.ScrolledWindow()
     self.scrolled_window.set_border_width(10)
