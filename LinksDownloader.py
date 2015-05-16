@@ -16,9 +16,9 @@ class LinksDownloader:
 	    try:
 		# print "platform:-", platform.system().lower(),"-"/home/walrus/Downloads
 		if 'windows' in platform.system().lower():
-		    if not os.path.isdir(os.path.abspath("C:/Users/Walrus/Downloads/temp_torrs")):
-			os.makedirs(os.path.abspath("C:/Users/Walrus/Downloads/temp_torrs"))
-		    home_temp = os.path.abspath("C:/Users/Walrus/Downloads/temp_torrs")
+		    if not os.path.isdir(os.path.abspath("C:/Users/Walrus/Downloads/torrents")):
+			os.makedirs(os.path.abspath("C:/Users/Walrus/Downloads/torrents"))
+		    home_temp = os.path.abspath("C:/Users/Walrus/Downloads/torrents")
 		elif 'linux' in sys.platform.lower():    
 		    if not os.path.isdir(os.path.abspath(os.environ['HOME'] + "/Downloads/torrents")):
 			os.makedirs(os.path.abspath(os.environ['HOME'] + "/Downloads/torrents"))

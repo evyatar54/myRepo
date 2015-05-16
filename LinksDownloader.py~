@@ -6,8 +6,6 @@ import os, subprocess, platform
 from statusBar import ProgressWin
 import gtk
 
-from evdev import uinput, ecodes as e
-
 class LinksDownloader:
 
     def __init__(self):
@@ -18,9 +16,9 @@ class LinksDownloader:
 	    try:
 		# print "platform:-", platform.system().lower(),"-"/home/walrus/Downloads
 		if 'windows' in platform.system().lower():
-		    if not os.path.isdir(os.path.abspath("C:/Users/Walrus/Downloads/temp_torrs")):
-			os.makedirs(os.path.abspath("C:/Users/Walrus/Downloads/temp_torrs"))
-		    home_temp = os.path.abspath("C:/Users/Walrus/Downloads/temp_torrs")
+		    if not os.path.isdir(os.path.abspath("C:/Users/Walrus/Downloads/torrents")):
+			os.makedirs(os.path.abspath("C:/Users/Walrus/Downloads/torrents"))
+		    home_temp = os.path.abspath("C:/Users/Walrus/Downloads/torrents")
 		elif 'linux' in sys.platform.lower():    
 		    if not os.path.isdir(os.path.abspath(os.environ['HOME'] + "/Downloads/torrents")):
 			os.makedirs(os.path.abspath(os.environ['HOME'] + "/Downloads/torrents"))
@@ -75,10 +73,6 @@ class LinksDownloader:
 		if path:
 		    if platform.system().lower().startswith('linux'):
 			subprocess.call(["xdg-open", path])
-			with uinput.UInput() as ui:
-			    ui.write(e.EV_KEY, e.KEY_ENTER, 1)
-			    ui.write(e.EV_KEY, e.KEY_ENTER, 0)
-			    ui.syn()
 	    
 		    elif platform.system().lower().startswith("windows"):
 			os.startfile(path)
