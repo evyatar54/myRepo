@@ -71,7 +71,8 @@ class LinksDownloader:
 		if path:
 		    if platform.system().lower().startswith('linux'):
 			subprocess.call(["xdg-open", path])
-		    else:
+			
+		    elif platform.system().lower().startswith("windows"):
 			os.startfile(path)
 		else:
 		    print "no path!"
