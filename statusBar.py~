@@ -1,5 +1,7 @@
 
 
+import gtk
+
 class ProgressWin(gtk.Window):
     
     def __init__(self,n):

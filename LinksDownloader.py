@@ -14,20 +14,22 @@ class LinksDownloader:
     def retrieve_path_by_os(self, name):
 	    path = ""
 	    try:
-		if platform.system() == "Windows":
-		    if not os.path.isdir(os.path.abspath("C:temp_torrs")):
-			os.makedirs(os.path.abspath("C:temp_torrs"))
-		    home_temp = os.path.abspath("C:temp_torrs")
-		elif sys.platform.lower().startswith('linux'):    
-		    if not os.path.isdir(os.path.abspath(os.environ['HOME'] + "/tmp")):
-			os.makedirs(os.path.abspath(os.environ['HOME'] + "/tmp"))
-		    home_temp = os.path.abspath(os.environ['HOME'] + "/tmp")
+		# print "platform:-", platform.system().lower(),"-"/home/walrus/Downloads
+		if 'windows' in platform.system().lower():
+		    if not os.path.isdir(os.path.abspath("C:/Users/Walrus/Downloads/temp_torrs")):
+			os.makedirs(os.path.abspath("C:/Users/Walrus/Downloads/temp_torrs"))
+		    home_temp = os.path.abspath("C:/Users/Walrus/Downloads/temp_torrs")
+		elif 'linux' in sys.platform.lower():    
+		    if not os.path.isdir(os.path.abspath(os.environ['HOME'] + "/Downloads/torrents")):
+			os.makedirs(os.path.abspath(os.environ['HOME'] + "/Downloads/torrents"))
+		    home_temp = os.path.abspath(os.environ['HOME'] + "/Downloads/torrents")
 		else:
 		    print "Unsupported Operating System"
 		    return ""
 	    except:
 		    return ""
 	    path = os.path.join(home_temp,name)
+	    print "path: ", path
 	    return path
 	
     def download(self, links_array):
@@ -71,11 +73,11 @@ class LinksDownloader:
 		if path:
 		    if platform.system().lower().startswith('linux'):
 			subprocess.call(["xdg-open", path])
-			
+	    
 		    elif platform.system().lower().startswith("windows"):
 			os.startfile(path)
 		else:
-		    print "no path!"
+			print "no path!"
 	    except:
 		print "Error openning file"
 	pw.destroy()

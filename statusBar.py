@@ -5,7 +5,7 @@ import gtk
 class ProgressWin(gtk.Window):
     
     def __init__(self,n):
-	gtk.Window.__init__(self)
+	gtk.Window.__init__(self,type=gtk.WINDOW_TOPLEVEL)
 	
 	self.vbox = gtk.VBox()
 	self.query_num = n
