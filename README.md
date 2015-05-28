@@ -3,24 +3,25 @@
 Installation guide:
 
 Prerequisites:
-	python 2.7.9+ [comes with pip]
-	KickassAPI
-	pygtk 
+  1. python 2.7.9+ [comes with pip]
+  2. KickassAPI
+  3. pygtk 
 	
 
 If one of the above is missing:
 
-	download python:
+download and install python:
 
-		https://www.python.org/downloads/release/python-2710/
+	https://www.python.org/downloads/release/python-2710/
 
-	download and install KickassAPI: 
+download and install KickassAPI: 
 
-		# pip install KickassAPI
+	# pip install KickassAPI
+	(on windows pip is by default located on: C:\python27\Lib\site-packages\pip ... )
 
-	download and install pygtk:
+download and install pygtk:
 
-		http://ftp.gnome.org/pub/GNOME/binaries/win32/pygtk/2.24/pygtk-2.24.0.win32-py2.7.exe
+	http://ftp.gnome.org/pub/GNOME/binaries/win32/pygtk/2.24/pygtk-2.24.0.win32-py2.7.exe
 
 
 
