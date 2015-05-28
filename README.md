@@ -17,7 +17,7 @@ download and install python:
 download and install KickassAPI: 
 
 	# pip install KickassAPI
-	(on windows pip is by default located on: C:\python27\Lib\site-packages\pip ... )
+	[ on windows pip is by default located on: C:\python27\Lib\site-packages\pip ... ]
 
 download and install pygtk:
 
