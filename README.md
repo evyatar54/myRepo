@@ -16,8 +16,7 @@ download and install python:
 
 download and install KickassAPI: 
 
-	# pip install KickassAPI
-	[ on windows pip is by default located on: C:\python27\Lib\site-packages\pip ... ]
+	# python -m pip install KickassAPI
 
 download and install pygtk:
 
@@ -27,11 +26,10 @@ download and install pygtk:
 
 After having all of the above:
 
-	on linux:   
-		https://github.com/evyatar54/myRepo/blob/master/RPM/KickassDownloader-1.0-1.noarch.rpm
-		install the rpm using #rpm or #alien
+    on linux:   
+        https://github.com/evyatar54/myRepo/blob/master/RPM/KickassDownloader-1.0-1.noarch.rpm?raw=true
+        install the rpm using #rpm or #alien
 
-	on windows: 
-		https://github.com/evyatar54/myRepo/blob/master/Windows%20Installation%20/setup.exe
-
-		install setup.exe
+    on windows: 
+        https://github.com/evyatar54/myRepo/blob/master/Windows%20Installation/setup.exe?raw=true
+        install setup.exe
