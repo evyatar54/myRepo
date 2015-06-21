@@ -90,7 +90,7 @@ class torrent_descriptor(gtk.TreeView):
         self.liststore = gtk.ListStore(bool, str, str, str, str)
         for r in results:
             name_len = len(r.name)
-            arr = [False, r.name[:min(40,name_len)], r.size, r.seed, r.age]
+            arr = [False, r.name[:min(100,name_len)], r.size, r.seed, r.age]
             #self.links.append(r.download_link)
             self.liststore.append(arr)
         gtk.TreeView.__init__(self, self.liststore)
