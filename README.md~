@@ -31,5 +31,5 @@ After having all of the above:
         install the rpm using #rpm or #alien
 
     on windows: 
-        https://github.com/evyatar54/myRepo/blob/master/Windows%20Installation/KickassInstaller.exe?raw=true
+        https://github.com/evyatar54/myRepo/blob/master/Windows%20Installation/setup.exe?raw=true
         install setup.exe
