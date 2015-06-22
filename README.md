@@ -27,9 +27,9 @@ download and install pygtk:
 After having all of the above:
 
     on linux:   
-        https://github.com/evyatar54/myRepo/blob/master/RPM/KickassDownloader-1.1-1.noarch.rpm?raw=true
+        https://github.com/evyatar54/myRepo/blob/master/RPM/KickassDownloader-1.0-1.noarch.rpm?raw=true
         install the rpm using #rpm or #alien
 
     on windows: 
-        https://github.com/evyatar54/myRepo/blob/master/Windows%20Installation/KickassInstaller.exe?raw=true
+        https://github.com/evyatar54/myRepo/blob/master/Windows%20Installation/setup.exe?raw=true
         install setup.exe
